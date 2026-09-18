@@ -52,6 +52,20 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/admin', adminRoutes);
 
+// Root API welcome endpoint
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Welcome to ShopSphere E-Commerce API',
+    version: '1.0.0',
+    documentation: {
+      health: '/api',
+      products: '/api/products',
+      categories: '/api/categories'
+    }
+  });
+});
+
 // Health check endpoint
 app.get('/api', (req, res) => {
   res.json({
